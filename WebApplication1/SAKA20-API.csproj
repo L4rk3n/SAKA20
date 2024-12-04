@@ -17,10 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SAKA20-Common\SAKA20-Common.csproj" />
     <ProjectReference Include="..\SAKA20-DB2\SAKA20-DB.csproj" />
     <ProjectReference Include="..\SAKA20DB\SAKA20-BLL.csproj" />

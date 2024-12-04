@@ -1,6 +1,5 @@
 ﻿
 using SAKA20_BLL.Entities;
-
 using SAKA20_BLL.Mapper;
 using SAKA20_DB;
 using SAKA20_Common.Repositories;

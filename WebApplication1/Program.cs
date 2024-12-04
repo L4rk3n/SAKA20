@@ -32,6 +32,7 @@ namespace WebApplication1
 
             app.UseAuthorization();
 
+            app.UseCors(o => o.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.MapControllers();
 
