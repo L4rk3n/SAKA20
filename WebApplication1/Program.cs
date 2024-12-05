@@ -1,6 +1,7 @@
 using SAKA20_Common.Repositories;
 using SAKA20_BLL.Entities;
 using SAKA20_DB;
+using SAKA20_API.Services;
 
 
 namespace WebApplication1
@@ -14,6 +15,7 @@ namespace WebApplication1
 
             // Add services to the container.
             builder.Services.AddScoped<DataContext>();
+            builder.Services.AddScoped<TokenService>();
             builder.Services.AddScoped<IUtilisateurRepository<SAKA20_BLL.Entities.Utilisateur,int,string>, SAKA20_BLL.Services.UtilisateurService>();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
@@ -29,10 +31,10 @@ namespace WebApplication1
             }
 
             app.UseHttpsRedirection();
+            app.UseCors(o => o.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseAuthorization();
 
-            app.UseCors(o => o.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.MapControllers();
 
