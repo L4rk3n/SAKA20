@@ -19,6 +19,7 @@ namespace SAKA20_BLL.Mapper
                Nom = entity.Nom,
                Prenom = entity.Prenom,
                Email = entity.Email,
+               Password = entity.Password,
                PhoneNumber = entity.PhoneNumber,
                Admin = entity.Admin,
                Activated = entity.Activated,

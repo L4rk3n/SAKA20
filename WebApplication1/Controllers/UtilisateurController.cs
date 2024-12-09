@@ -32,16 +32,10 @@ namespace SAKA20_API.Controllers
             {
                 if (!ModelState.IsValid) return BadRequest(ModelState);
 
-                try
+                else
                 {
-                    _UtilisateurService.Create(form.ToBLL());
+                    return Ok(_UtilisateurService.Create(form.ToBLL()));
                 }
-                catch (Exception error)
-                {
-                    Console.WriteLine(error.Message);
-                    return BadRequest(error.Message);
-                }
-                return Ok();
             }
 
             [HttpGet("byUtilisateurs/{id}")]
