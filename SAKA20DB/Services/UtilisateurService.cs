@@ -18,16 +18,11 @@ namespace SAKA20_BLL.Services
 
         public bool Create(Utilisateur entity)
         {
-            try
-            {
+         
                 _context.Utilisateur.Add(entity.ToEU());
                 _context.SaveChanges();
                 return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
+           
         }
 
         public void Delete(int id)

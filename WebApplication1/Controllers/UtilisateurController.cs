@@ -39,6 +39,7 @@ namespace SAKA20_API.Controllers
                 catch (Exception error)
                 {
                     Console.WriteLine(error.Message);
+                    return BadRequest(error.Message);
                 }
                 return Ok();
             }

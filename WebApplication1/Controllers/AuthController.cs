@@ -38,7 +38,7 @@ namespace SAKA20_API.Controllers
             if (utilisateur.Cancelled == true )
                 return BadRequest();
 
-            // to do generer le token a renvoyer dans le ok 
+            
             return Ok(new { token = _tokenService.GenerateJwt(utilisateur) });
 
         }
