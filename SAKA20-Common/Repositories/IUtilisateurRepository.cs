@@ -11,6 +11,6 @@ namespace SAKA20_Common.Repositories
         public bool Create(TUtilisateur utilisateur);
         public void Update(TId id, TUtilisateur utilisateur);
         public void Delete(TId id);
-
+        Task<bool> UpdatePasswordAsync(int userId, string oldPassword, string newPassword);
     }
 }

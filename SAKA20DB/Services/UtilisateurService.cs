@@ -3,6 +3,7 @@ using SAKA20_BLL.Entities;
 using SAKA20_BLL.Mapper;
 using SAKA20_DB;
 using SAKA20_Common.Repositories;
+using static SAKA20_BLL.Services.UtilisateurService;
 
 
 namespace SAKA20_BLL.Services
@@ -72,7 +73,6 @@ namespace SAKA20_BLL.Services
             try
             {
                 var Utilisateur = _context.Utilisateur.First(l => l.IDutilisateur == id);
-                Utilisateur.IDutilisateur = entity.IDutilisateur;
                 Utilisateur.Nom = entity.Nom;
                 Utilisateur.Prenom = entity.Prenom;
                 Utilisateur.Email = entity.Email;
@@ -94,6 +94,21 @@ namespace SAKA20_BLL.Services
                 throw new Exception("Data error !");
             }
         }
+
+            public async Task<bool> UpdatePasswordAsync(int userId, string oldPassword, string newPassword)
+            {
+                var user = await _context.Utilisateur.FindAsync(userId);
+                if (user == null || user.Password != oldPassword)
+                {
+                    return false;
+                }
+
+                user.Password = newPassword;
+                _context.Utilisateur.Update(user);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+
 
     }
 }
