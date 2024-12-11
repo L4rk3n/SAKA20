@@ -60,6 +60,7 @@ namespace SAKA20_API.Tools
                 Prenom = entity.Prenom,
                 Email = entity.Email,
                 PhoneNumber = entity.PhoneNumber,
+                AdresseRue = entity.AdresseRue,
                 AdresseNumero = entity.AdresseNumero,
                 AdresseCodePostal = entity.AdresseCodePostal,
                 AdresseVille = entity.AdresseVille,
@@ -87,6 +88,64 @@ namespace SAKA20_API.Tools
                 AdresseNumeroBoite = entity.AdresseNumeroBoite,
                 AdresseCountry = entity.AdresseCountry,
                 
+            };
+        }
+
+        public static DTO.Forms.accessFormDTO accessToAPI(this BLL.Utilisateur entity)
+        {
+            return new DTO.Forms.accessFormDTO
+            {
+
+                Nom = entity.Nom,
+                Prenom = entity.Prenom,
+                Admin = entity.Admin,
+                Activated = entity.Activated,
+                Cancelled = entity.Cancelled,
+
+
+            };
+        }
+
+        public static BLL.Utilisateur accessToBLL(this DTO.Forms.accessFormDTO entity)
+        {
+            return new BLL.Utilisateur
+            {
+
+
+                Nom = entity.Nom,
+                Prenom = entity.Prenom,
+                Admin = entity.Admin,
+                Activated = entity.Activated,
+                Cancelled = entity.Cancelled,
+
+            };
+        }
+
+        public static DTO.Forms.namelessaccessFormDTO namelessToAPI(this BLL.Utilisateur entity)
+        {
+            return new DTO.Forms.namelessaccessFormDTO
+            {
+
+                
+                Admin = entity.Admin,
+                Activated = entity.Activated,
+                Cancelled = entity.Cancelled,
+
+
+            };
+        }
+
+        public static BLL.Utilisateur namelessToBLL(this DTO.Forms.namelessaccessFormDTO entity)
+        {
+            return new BLL.Utilisateur
+            {
+
+
+                
+                Admin = entity.Admin,
+                Activated = entity.Activated,
+                Cancelled = entity.Cancelled,
+
             };
         }
     }

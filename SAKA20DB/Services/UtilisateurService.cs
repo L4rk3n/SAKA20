@@ -91,7 +91,24 @@ namespace SAKA20_BLL.Services
             }
         }
 
-            public async Task<bool> UpdatePasswordAsync(int userId, string oldPassword, string newPassword)
+        public void UpdateAccess(int id, Utilisateur entity)
+        {
+            try
+            {
+                var Utilisateur = _context.Utilisateur.First(l => l.IDutilisateur == id);
+                Utilisateur.Admin = entity.Admin;
+                Utilisateur.Activated = entity.Activated;
+                Utilisateur.Cancelled = entity.Cancelled;
+
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Data error !");
+            }
+        }
+
+        public async Task<bool> UpdatePasswordAsync(int userId, string oldPassword, string newPassword)
             {
                 var user = await _context.Utilisateur.FindAsync(userId);
                 if (user == null || user.Password != oldPassword)

@@ -40,7 +40,7 @@ namespace SAKA20_API.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("byUtilisateur/{id}")]
         public IActionResult GetByUtilisateursId(int id)
         {
             return Ok(_UtilisateurService.Get(id).UpdateToAPI());
