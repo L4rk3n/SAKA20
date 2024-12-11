@@ -6,6 +6,7 @@ using SAKA20_BLL.Entities;
 using SAKA20_API.Tools;
 using SAKA20_BLL.Services;
 
+
 namespace SAKA20_API.Controllers
 {
 
@@ -25,7 +26,7 @@ namespace SAKA20_API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_UtilisateurService.Get());
+            return Ok(_UtilisateurService.Get().Select(u=> u.UpdateToAPI()));
         }
 
         [HttpPost]
@@ -39,10 +40,10 @@ namespace SAKA20_API.Controllers
             }
         }
 
-        [HttpGet("byUtilisateurs/{id}")]
+        [HttpGet("{id}")]
         public IActionResult GetByUtilisateursId(int id)
         {
-            return Ok(_UtilisateurService.Get(id));
+            return Ok(_UtilisateurService.Get(id).UpdateToAPI());
         }
 
         [HttpGet("byEmail/{email}")]
@@ -51,7 +52,7 @@ namespace SAKA20_API.Controllers
             return Ok(_UtilisateurService.Get(email));
         }
 
-        [HttpPost("updatepassword")]
+        [HttpPut("updatepassword")]
         public async Task<IActionResult> UpdateAsync([FromBody] OldNewPasswordDTO form)
         {
             if (!ModelState.IsValid)
@@ -62,6 +63,21 @@ namespace SAKA20_API.Controllers
             if (!result) 
                 { return Unauthorized("L'ancien mot de passe est incorrect."); }
             return Ok(result);  
+        }
+        [HttpPut("{id}")]
+        public IActionResult UpdateUtilisateur(int id, [FromBody] profileupdatedDTO utilisateurupdated)
+        {
+            if (!ModelState.IsValid) { return BadRequest(ModelState);
+        }
+            try
+                {
+
+                _UtilisateurService.Update(id, utilisateurupdated.UpdateToBLL());
+                return NoContent(); }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal server error: " + ex.Message);
+            }
         }
     }
 }

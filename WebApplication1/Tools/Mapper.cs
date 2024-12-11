@@ -50,5 +50,44 @@ namespace SAKA20_API.Tools
                 AdresseCountry = entity.AdresseCountry,
             };
         }
+
+        public static DTO.Forms.profileupdatedDTO UpdateToAPI(this BLL.Utilisateur entity)
+        {
+            return new DTO.Forms.profileupdatedDTO
+            {
+
+                Nom = entity.Nom,
+                Prenom = entity.Prenom,
+                Email = entity.Email,
+                PhoneNumber = entity.PhoneNumber,
+                AdresseNumero = entity.AdresseNumero,
+                AdresseCodePostal = entity.AdresseCodePostal,
+                AdresseVille = entity.AdresseVille,
+                AdresseNumeroBoite = entity.AdresseNumeroBoite,
+                AdresseCountry = entity.AdresseCountry,
+                
+
+            };
+        }
+
+        public static BLL.Utilisateur UpdateToBLL(this DTO.Forms.profileupdatedDTO entity)
+        {
+            return new BLL.Utilisateur
+            {
+
+
+                Nom = entity.Nom,
+                Prenom = entity.Prenom,
+                Email = entity.Email,
+                PhoneNumber = entity.PhoneNumber,
+                AdresseRue = entity.AdresseRue,
+                AdresseNumero = entity.AdresseNumero,
+                AdresseCodePostal = entity.AdresseCodePostal,
+                AdresseVille = entity.AdresseVille,
+                AdresseNumeroBoite = entity.AdresseNumeroBoite,
+                AdresseCountry = entity.AdresseCountry,
+                
+            };
+        }
     }
 }

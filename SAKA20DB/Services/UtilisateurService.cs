@@ -77,10 +77,6 @@ namespace SAKA20_BLL.Services
                 Utilisateur.Prenom = entity.Prenom;
                 Utilisateur.Email = entity.Email;
                 Utilisateur.PhoneNumber = entity.PhoneNumber;
-                Utilisateur.Admin = entity.Admin;
-                Utilisateur.Activated = entity.Activated;
-                Utilisateur.Cancelled = entity.Cancelled;
-                Utilisateur.AdresseRue = entity.AdresseRue;
                 Utilisateur.AdresseNumero = entity.AdresseNumero;
                 Utilisateur.AdresseCodePostal = entity.AdresseCodePostal;
                 Utilisateur.AdresseVille = entity.AdresseVille;
