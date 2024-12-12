@@ -95,7 +95,7 @@ namespace SAKA20_API.Tools
         {
             return new DTO.Forms.accessFormDTO
             {
-
+                IDutilisateur = entity.IDutilisateur,
                 Nom = entity.Nom,
                 Prenom = entity.Prenom,
                 Admin = entity.Admin,
@@ -111,7 +111,7 @@ namespace SAKA20_API.Tools
             return new BLL.Utilisateur
             {
 
-
+                IDutilisateur = entity.IDutilisateur,
                 Nom = entity.Nom,
                 Prenom = entity.Prenom,
                 Admin = entity.Admin,

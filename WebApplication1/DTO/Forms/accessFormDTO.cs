@@ -4,7 +4,8 @@ namespace SAKA20_API.DTO.Forms
 {
     public class accessFormDTO
     {
-
+        [Required]
+        public int IDutilisateur { get; set; }
         [Required]
         public string Nom { get; set; }
         [Required]

@@ -17,7 +17,7 @@ namespace SAKA20_API.Controllers
             _UtilisateurService = UtilisateurService;
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public IActionResult UpdateAccess(int id, [FromBody] namelessaccessFormDTO accessupdated)
         {
             if (!ModelState.IsValid)
