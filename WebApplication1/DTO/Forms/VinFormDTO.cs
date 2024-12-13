@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SAKA20API.DTO.Forms
+namespace SAKA20_API.DTO.Forms
 {
     public class VinFormDTO
     {

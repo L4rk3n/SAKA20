@@ -139,14 +139,120 @@ namespace SAKA20_API.Tools
         {
             return new BLL.Utilisateur
             {
-
-
-                
+            
                 Admin = entity.Admin,
                 Activated = entity.Activated,
                 Cancelled = entity.Cancelled,
 
             };
         }
+
+        public static DTO.Forms.VinFormDTO vinToAPI(this BLL.Vin entity)
+        {
+            return new DTO.Forms.VinFormDTO
+            {
+
+
+                Idvin = entity.Idvin,
+                Nom = entity.Nom,
+                Fournisseur = entity.Fournisseur,
+                Cuvee = entity.Cuvee,
+                Type = entity.Type,
+                Format = entity.Format,
+                Disponible = entity.Disponible,
+                Stock = entity.Stock,
+                Empalpha = entity.Empalpha,
+                Empnum = entity.Empnum,
+                Prix = entity.Prix,
+                Prixtva = entity.Prixtva,
+
+
+            };
+        }
+
+        public static BLL.Vin vinToBLL(this DTO.Forms.VinFormDTO entity)
+        {
+            return new BLL.Vin
+            {
+
+                Idvin = entity.Idvin,
+                Nom = entity.Nom,
+                Fournisseur = entity.Fournisseur,
+                Cuvee = entity.Cuvee,
+                Type = entity.Type,
+                Format = entity.Format,
+                Disponible = entity.Disponible,
+                Stock = entity.Stock,
+                Empalpha = entity.Empalpha,
+                Empnum = entity.Empnum,
+                Prix = entity.Prix,
+                Prixtva = entity.Prixtva,
+
+            };
+        }
+
+        public static DTO.Forms.UpdateVinFormDTO updatevinToAPI(this BLL.Vin entity)
+        {
+            return new DTO.Forms.UpdateVinFormDTO
+            {
+
+                Nom = entity.Nom,
+                Fournisseur = entity.Fournisseur,
+                Cuvee = entity.Cuvee,
+                Type = entity.Type,
+                Format = entity.Format,
+                Disponible = entity.Disponible,
+                Stock = entity.Stock,
+                Empalpha = entity.Empalpha,
+                Empnum = entity.Empnum,
+                Prix = entity.Prix,
+                Prixtva = entity.Prixtva,
+
+
+            };
+        }
+
+        public static BLL.Vin updatevinToBLL(this DTO.Forms.UpdateVinFormDTO entity)
+        {
+            return new BLL.Vin
+            {
+
+                Nom = entity.Nom,
+                Fournisseur = entity.Fournisseur,
+                Cuvee = entity.Cuvee,
+                Type = entity.Type,
+                Format = entity.Format,
+                Disponible = entity.Disponible,
+                Stock = entity.Stock,
+                Empalpha = entity.Empalpha,
+                Empnum = entity.Empnum,
+                Prix = entity.Prix,
+                Prixtva = entity.Prixtva,
+
+            };
+        }
+
+        public static DTO.Forms.UpdateDispoFormDTO dispoToAPI(this BLL.Vin entity)
+        {
+            return new DTO.Forms.UpdateDispoFormDTO
+            {
+
+                Disponible = entity.Disponible,
+                Stock = entity.Stock,
+
+            };
+        }
+
+        public static BLL.Vin dispoToBLL(this DTO.Forms.UpdateDispoFormDTO entity)
+        {
+            return new BLL.Vin
+            {
+
+                Disponible = entity.Disponible,
+                Stock = entity.Stock,
+
+            };
+        }
+
     }
 }
