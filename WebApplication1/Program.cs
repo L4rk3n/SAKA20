@@ -17,6 +17,7 @@ namespace WebApplication1
             builder.Services.AddScoped<DataContext>();
             builder.Services.AddScoped<TokenService>();
             builder.Services.AddScoped<IUtilisateurRepository<SAKA20_BLL.Entities.Utilisateur,int,string>, SAKA20_BLL.Services.UtilisateurService>();
+            builder.Services.AddScoped<IVinRepository<SAKA20_BLL.Entities.Vin, int>, SAKA20_BLL.Services.VinService>();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();

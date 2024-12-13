@@ -1,10 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using EU = SAKA20_DB.Entities;
+using EU2 = SAKA20_DB2.Entities;
 using BLL = SAKA20_BLL.Entities;
 
 namespace SAKA20_BLL.Mapper
@@ -53,6 +49,46 @@ namespace SAKA20_BLL.Mapper
                 AdresseVille = entity.AdresseVille,
                 AdresseNumeroBoite = entity.AdresseNumeroBoite,
                 AdresseCountry = entity.AdresseCountry,
+
+            };
+        }
+
+        public static EU2.Vin ToEU2(this BLL.Vin entity)
+        {
+            return new EU2.Vin
+            {
+                Idvin = entity.Idvin,
+                Nom = entity.Nom,
+                Fournisseur = entity.Fournisseur,
+                Cuvee = entity.Cuvee,
+                Type = entity.Type,
+                Format = entity.Format,
+                Disponible = entity.Disponible,
+                Stock = entity.Stock,
+                Empalpha = entity.Empalpha,
+                Empnum = entity.Empnum,
+                Prix = entity.Prix,
+                Prixtva = entity.Prixtva,
+
+            };  
+        }
+
+        public static BLL.Vin ToBLL(this EU2.Vin entity)
+        {
+            return new BLL.Vin
+            {
+                Idvin = entity.Idvin,
+                Nom = entity.Nom,
+                Fournisseur = entity.Fournisseur,
+                Cuvee = entity.Cuvee,
+                Type = entity.Type,
+                Format = entity.Format,
+                Disponible = entity.Disponible,
+                Stock = entity.Stock,
+                Empalpha = entity.Empalpha,
+                Empnum = entity.Empnum,
+                Prix = entity.Prix,
+                Prixtva = entity.Prixtva,
 
             };
         }
